@@ -1,0 +1,72 @@
+<div class="register-page">
+
+  <div class="register-card">
+
+    <div class="register-header">
+
+      <div class="youtube-icon">
+        ▶
+      </div>
+
+      <h1>Créer un compte</h1>
+
+      <p>
+        Inscrivez-vous pour créer et gérer votre playlist.
+      </p>
+
+    </div>
+
+    @if (error()) {
+      <div class="error-message">
+        {{ error() }}
+      </div>
+    }
+
+    <div class="form-group">
+      <label>Pseudo</label>
+
+      <input
+        type="text"
+        placeholder="Votre pseudo"
+        [value]="pseudo()"
+        (input)="pseudo.set($any($event.target).value)"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+
+      <input
+        type="email"
+        placeholder="votre@email.com"
+        [value]="email()"
+        (input)="email.set($any($event.target).value)"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Mot de passe</label>
+
+      <input
+        type="password"
+        placeholder="Votre mot de passe"
+        [value]="password()"
+        (input)="password.set($any($event.target).value)"
+      >
+    </div>
+
+    <button
+      class="register-button"
+      type="button"
+      (click)="register()"
+    >
+      S'inscrire
+    </button>
+
+    <p class="security-text">
+      Votre compte vous permet de retrouver votre playlist.
+    </p>
+
+  </div>
+
+</div>

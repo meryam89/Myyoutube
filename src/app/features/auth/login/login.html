@@ -1,0 +1,61 @@
+<div class="login-page">
+
+  <div class="login-card">
+
+    <div class="login-header">
+
+      <div class="youtube-icon">
+        ▶
+      </div>
+
+      <h1>Connexion</h1>
+
+      <p>
+        Connectez-vous pour accéder à votre playlist.
+      </p>
+
+    </div>
+
+    @if (error()) {
+      <div class="error-message">
+        {{ error() }}
+      </div>
+    }
+
+    <div class="form-group">
+      <label>Pseudo</label>
+
+      <input
+        type="text"
+        placeholder="Votre pseudo"
+        [value]="pseudo()"
+        (input)="pseudo.set($any($event.target).value)"
+      >
+    </div>
+
+    <div class="form-group">
+      <label>Mot de passe</label>
+
+      <input
+        type="password"
+        placeholder="Votre mot de passe"
+        [value]="password()"
+        (input)="password.set($any($event.target).value)"
+      >
+    </div>
+
+    <button
+      class="login-button"
+      type="button"
+      (click)="login()"
+    >
+      Se connecter
+    </button>
+
+    <p class="login-info">
+      Connectez-vous pour retrouver vos vidéos enregistrées.
+    </p>
+
+  </div>
+
+</div>

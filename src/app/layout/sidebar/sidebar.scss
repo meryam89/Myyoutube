@@ -1,0 +1,372 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.sidebar {
+  width: 270px;
+  min-height: calc(100vh - 72px);
+
+  padding: 32px 22px;
+
+  background: #ffffff;
+
+  border-right: 1px solid #e8e8e8;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   TITRES
+========================= */
+
+.section-title {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: #aaaaaa;
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   COMPTE
+========================= */
+
+.user-section {
+  padding-bottom: 28px;
+
+  border-bottom: 1px solid #eeeeee;
+}
+
+.user-card {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ff0000;
+  color: #ffffff;
+
+  border-radius: 50%;
+
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+.user-info {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.user-label {
+  color: #999999;
+
+  font-size: 0.7rem;
+}
+
+.user-info strong {
+  overflow: hidden;
+
+  color: #252525;
+
+  font-size: 0.9rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   VISITEUR
+========================= */
+
+.guest-card {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  background: #f7f7f7;
+
+  border-radius: 12px;
+}
+
+.guest-icon {
+  font-size: 1.3rem;
+}
+
+.guest-card strong {
+  color: #333333;
+
+  font-size: 0.85rem;
+}
+
+.guest-card p {
+  margin: 5px 0 0;
+
+  color: #888888;
+
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   PLAYLIST
+========================= */
+
+.playlist-section {
+  padding-top: 28px;
+}
+
+.playlist-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.playlist-header h3 {
+  margin: 0;
+
+  color: #292929;
+
+  font-size: 1rem;
+}
+
+.video-count {
+  min-width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff0f0;
+  color: #ff0000;
+
+  border-radius: 50%;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+/* =========================
+   BOUTON PAGE PLAYLIST
+========================= */
+
+.playlist-page-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+  padding: 12px 14px;
+
+  background: #fff0f0;
+  color: #d90000;
+
+  border: 1px solid #ffd5d5;
+  border-radius: 10px;
+
+  box-sizing: border-box;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: 0.2s ease;
+}
+
+.playlist-page-button:hover {
+  background: #ff0000;
+  color: #ffffff;
+
+  border-color: #ff0000;
+}
+
+.playlist-button-icon {
+  font-size: 1rem;
+}
+
+.playlist-arrow {
+  margin-left: auto;
+
+  font-size: 1rem;
+}
+
+/* =========================
+   PLAYLIST VIDE
+========================= */
+
+.empty-playlist {
+  padding: 25px 12px;
+
+  background: #fafafa;
+
+  border: 1px dashed #dddddd;
+  border-radius: 12px;
+
+  text-align: center;
+}
+
+.empty-icon {
+  margin-bottom: 10px;
+
+  color: #bbbbbb;
+
+  font-size: 1.8rem;
+}
+
+.empty-playlist p {
+  margin: 0 0 7px;
+
+  color: #555555;
+
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.empty-playlist span {
+  color: #999999;
+
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   VIDÉOS PLAYLIST
+========================= */
+
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.playlist-item {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  color: #333333;
+
+  border-radius: 9px;
+
+  text-decoration: none;
+
+  box-sizing: border-box;
+
+  transition: 0.2s ease;
+}
+
+.playlist-item:hover {
+  background: #f5f5f5;
+}
+
+.playlist-play {
+  width: 28px;
+  height: 28px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 2px;
+
+  background: #ff0000;
+  color: #ffffff;
+
+  border-radius: 7px;
+
+  font-size: 8px;
+}
+
+.playlist-title {
+  min-width: 0;
+
+  overflow: hidden;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   TABLETTE / MOBILE
+========================= */
+
+@media (max-width: 850px) {
+
+  .sidebar {
+    width: 220px;
+
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 650px) {
+
+  :host {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+
+    padding: 20px;
+
+    border-right: none;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  .user-section {
+    padding-bottom: 20px;
+  }
+
+  .playlist-section {
+    padding-top: 20px;
+  }
+}

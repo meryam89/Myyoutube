@@ -1,0 +1,55 @@
+<header class="header">
+
+  <a class="brand" routerLink="/">
+    <span class="brand-icon">▶</span>
+
+    <span class="brand-name">
+            My<span>YouTube</span>
+        </span>
+  </a>
+
+
+  <nav class="header-actions">
+
+    @if (auth.currentUser()) {
+
+      <span class="welcome">
+                Bonjour,
+                <strong>{{ auth.currentUser()?.pseudo }}</strong>
+            </span>
+
+      <button
+        class="search-button"
+        routerLink="/"
+      >
+        Rechercher
+      </button>
+
+      <button
+        class="logout-button"
+        (click)="logout()"
+      >
+        Se déconnecter
+      </button>
+
+    } @else {
+
+      <button
+        class="register-button"
+        routerLink="/register"
+      >
+        S'inscrire
+      </button>
+
+      <button
+        class="login-button"
+        routerLink="/login"
+      >
+        Se connecter
+      </button>
+
+    }
+
+  </nav>
+
+</header>

@@ -1,0 +1,40 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.layout {
+  display: flex;
+  align-items: stretch;
+
+  min-height: calc(100vh - 72px);
+
+  background: #fafafa;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+
+  background: #fafafa;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .layout {
+    flex-direction: column;
+
+    min-height: calc(100vh - 64px);
+  }
+
+  .content {
+    width: 100%;
+  }
+}

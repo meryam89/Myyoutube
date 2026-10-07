@@ -42,3 +42,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Configuration locale avec clé API
+/src/environments/environment.ts

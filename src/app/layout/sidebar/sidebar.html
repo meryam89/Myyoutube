@@ -1,0 +1,103 @@
+<aside class="sidebar">
+
+  <div class="user-section">
+
+    <span class="section-title">COMPTE</span>
+
+    @if (auth.currentUser()) {
+
+      <div class="user-card">
+        <div class="avatar">
+          {{ auth.currentUser()?.pseudo?.charAt(0)?.toUpperCase() }}
+        </div>
+
+        <div class="user-info">
+          <span class="user-label">Connecté en tant que</span>
+          <strong>{{ auth.currentUser()?.pseudo }}</strong>
+        </div>
+      </div>
+
+    } @else {
+
+      <div class="guest-card">
+        <div class="guest-icon">👤</div>
+
+        <div>
+          <strong>Non connecté</strong>
+          <p>Connectez-vous pour gérer votre playlist.</p>
+        </div>
+      </div>
+
+    }
+
+  </div>
+
+
+  <div class="playlist-section">
+
+    <div class="playlist-header">
+
+      <div>
+        <span class="section-title">MA PLAYLIST</span>
+        <h3>Vidéos enregistrées</h3>
+      </div>
+
+      <span class="video-count">
+        {{ playlist.videoCount() }}
+    </span>
+
+    </div>
+
+    <a
+      class="playlist-page-button"
+      routerLink="/playlist"
+    >
+      <span class="playlist-button-icon">♡</span>
+      Voir ma playlist
+      <span class="playlist-arrow">→</span>
+    </a>
+
+
+    @if (playlist.videoCount() === 0) {
+
+      <div class="empty-playlist">
+
+        <div class="empty-icon">♡</div>
+
+        <p>
+          Aucune vidéo dans votre playlist.
+        </p>
+
+        <span>
+                    Ajoutez des vidéos depuis les résultats de recherche.
+                </span>
+
+      </div>
+
+    }
+
+
+    <div class="playlist-list">
+
+      @for (video of playlist.videos(); track video.id) {
+
+        <a
+          class="playlist-item"
+          [routerLink]="['/player', video.id]"
+        >
+                    <span class="playlist-play">
+                        ▶
+                    </span>
+
+          <span class="playlist-title">
+                        {{ video.title }}
+                    </span>
+        </a>
+
+      }
+
+    </div>
+
+  </div>
+
+</aside>

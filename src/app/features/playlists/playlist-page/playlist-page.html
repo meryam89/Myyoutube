@@ -1,0 +1,124 @@
+
+<section class="playlist-page">
+
+  <div class="playlist-header">
+
+    <div>
+      <span class="section-label">MA BIBLIOTHÈQUE</span>
+
+      <h1>Ma Playlist</h1>
+
+      <p>
+        Retrouvez ici toutes les vidéos que vous avez enregistrées.
+      </p>
+    </div>
+
+
+    @if (playlist.videos().length > 0) {
+
+      <button
+        type="button"
+        class="clear-button"
+        (click)="playlist.clear()"
+      >
+        Vider la playlist
+      </button>
+
+    }
+
+  </div>
+
+
+  @if (playlist.videos().length === 0) {
+
+    <div class="empty-playlist">
+
+      <div class="empty-icon">
+        ♡
+      </div>
+
+      <h2>Votre playlist est vide</h2>
+
+      <p>
+        Recherchez des vidéos et ajoutez celles que vous souhaitez retrouver ici.
+      </p>
+
+      <a routerLink="/">
+        Rechercher des vidéos
+      </a>
+
+    </div>
+
+  }
+
+
+  @if (playlist.videos().length > 0) {
+
+    <div class="playlist-count">
+      {{ playlist.videos().length }}
+      vidéo(s) enregistrée(s)
+    </div>
+
+
+    <div class="playlist-grid">
+
+      @for (video of playlist.videos(); track video.id) {
+
+        <article class="video-card">
+
+          <a
+            class="thumbnail"
+            [routerLink]="['/player', video.id]"
+          >
+
+            <img
+              [src]="video.thumbnail"
+              [alt]="video.title"
+            >
+
+            <div class="play-overlay">
+              <span>▶</span>
+            </div>
+
+          </a>
+
+
+          <div class="video-content">
+
+            <h3>
+              {{ video.title }}
+            </h3>
+
+
+            <div class="video-actions">
+
+              <a
+                class="watch-button"
+                [routerLink]="['/player', video.id]"
+              >
+                Lire
+                <span>▶</span>
+              </a>
+
+
+              <button
+                type="button"
+                class="delete-button"
+                (click)="playlist.remove(video.id)"
+              >
+                Supprimer
+              </button>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+
+  }
+
+</section>

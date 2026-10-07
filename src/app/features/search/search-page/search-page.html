@@ -1,0 +1,134 @@
+<section class="search-page">
+
+  <div class="search-header">
+    <span class="section-label">MY YOUTUBE</span>
+
+    <h1>Découvrez des vidéos</h1>
+
+    <p>
+      Recherchez des vidéos YouTube, regardez-les et
+      ajoutez vos préférées à votre playlist.
+    </p>
+  </div>
+
+
+  <div class="search-bar">
+
+    <input
+      type="text"
+      placeholder="Rechercher une vidéo..."
+      [value]="query()"
+      (input)="query.set($any($event.target).value)"
+      (keyup.enter)="search()"
+    >
+
+    <button
+      type="button"
+      (click)="search()"
+    >
+      Rechercher
+    </button>
+
+  </div>
+
+
+  @if (loading()) {
+    <div class="status-message">
+      <div class="loader"></div>
+      <p>Recherche en cours...</p>
+    </div>
+  }
+
+
+  @if (error()) {
+    <div class="error-message">
+      {{ error() }}
+    </div>
+  }
+
+
+  @if (!loading() && videos().length > 0) {
+
+    <div class="results-header">
+      <h2>Résultats</h2>
+
+      <span>
+                {{ videos().length }} vidéos
+            </span>
+    </div>
+
+
+    <div class="results">
+
+      @for (video of videos(); track video.videoId) {
+
+        <article class="video-card">
+
+          <a
+            class="thumbnail-container"
+            [routerLink]="['/player', video.videoId]"
+          >
+            <img
+              [src]="video.videoThumbnails?.[0]?.url"
+              [alt]="video.title"
+            >
+
+            <div class="play-overlay">
+              <span>▶</span>
+            </div>
+          </a>
+
+
+          <div class="video-content">
+
+            <h3>
+              {{ video.title }}
+            </h3>
+
+
+            <div class="video-actions">
+
+              <button
+                type="button"
+                class="playlist-button"
+                (click)="addToPlaylist(video)"
+              >
+                + Playlist
+              </button>
+
+
+              <a
+                class="watch-button"
+                [routerLink]="['/player', video.videoId]"
+              >
+                Lire
+                <span>▶</span>
+              </a>
+
+            </div>
+
+          </div>
+
+        </article>
+
+      }
+
+    </div>
+  }
+
+
+  @if (searched() && !loading() && videos().length === 0 && !error()) {
+
+    <div class="empty-state">
+      <div>🔎</div>
+
+      <h3>Aucune vidéo trouvée</h3>
+
+      <p>
+        Essayez avec une autre recherche.
+      </p>
+    </div>
+
+  }
+
+</section>

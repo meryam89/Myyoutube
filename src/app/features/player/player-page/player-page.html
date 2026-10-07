@@ -1,0 +1,64 @@
+<section class="player-page">
+
+  <div class="player-header">
+
+    <a
+      class="back-link"
+      routerLink="/"
+    >
+      ← Retour aux vidéos
+    </a>
+
+    <span class="section-label">
+      MY YOUTUBE
+    </span>
+
+    <h1>Lecture vidéo</h1>
+
+    <p>
+      Profitez de votre vidéo directement depuis MyYouTube.
+    </p>
+
+  </div>
+
+
+  @if (videoUrl) {
+
+    <div class="player-card">
+
+      <div class="video-container">
+
+        <iframe
+          [src]="videoUrl"
+          title="Lecteur vidéo YouTube"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+
+    </div>
+
+  } @else {
+
+    <div class="player-error">
+
+      <div class="error-icon">
+        !
+      </div>
+
+      <h2>Vidéo indisponible</h2>
+
+      <p>
+        Impossible de charger cette vidéo.
+      </p>
+
+      <a routerLink="/">
+        Retour à la recherche
+      </a>
+
+    </div>
+
+  }
+
+</section>
