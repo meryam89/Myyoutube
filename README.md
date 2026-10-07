@@ -1,59 +1,146 @@
-# Myyoutube
+# 🎬 MyYouTube
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.0.
+MyYouTube est une application web développée avec Angular permettant de rechercher des vidéos YouTube, de les visionner et de gérer une playlist personnelle.
 
-## Development server
+Ce projet met en pratique plusieurs concepts importants d'Angular : composants standalone, services, routing, guards, gestion d'état avec les signals, appels HTTP et tests unitaires.
 
-To start a local development server, run:
+## ✨ Fonctionnalités
 
-```bash
-ng serve
+- 🔎 Recherche de vidéos via l'API YouTube Data API v3
+- ▶️ Lecture des vidéos dans l'application
+- ❤️ Ajout de vidéos à une playlist
+- 🗑️ Suppression d'une vidéo de la playlist
+- 🧹 Possibilité de vider toute la playlist
+- 👤 Inscription et connexion utilisateur
+- 🔐 Protection de la page playlist avec un Auth Guard
+- 💾 Sauvegarde locale de l'utilisateur et de sa playlist
+- 📱 Interface responsive
+
+## 🛠️ Technologies utilisées
+
+- Angular
+- TypeScript
+- HTML
+- SCSS
+- Angular Router
+- Angular Signals
+- HttpClient
+- YouTube Data API v3
+- LocalStorage
+- Vitest
+
+## 📁 Organisation du projet
+
+```text
+src/app/
+├── core/
+│   ├── guards/
+│   └── services/
+├── features/
+│   ├── auth/
+│   ├── player/
+│   ├── playlists/
+│   └── search/
+├── layout/
+│   ├── header/
+│   ├── shell/
+│   └── sidebar/
+└── shared/
+    └── models/
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Installation
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Cloner le projet puis installer les dépendances :
 
 ```bash
-ng generate component component-name
+npm install
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🔑 Configuration de l'API YouTube
+
+L'application utilise **YouTube Data API v3**.
+
+Créer le fichier :
+
+```text
+src/environments/environment.ts
+```
+
+Puis ajouter :
+
+```ts
+export const environment = {
+  production: false,
+  youtubeApiKey: 'VOTRE_CLE_API'
+};
+```
+
+Le fichier `environment.ts` contenant la clé API est ignoré par Git et ne doit pas être publié dans le dépôt.
+
+Il est recommandé de restreindre la clé API depuis Google Cloud aux API et origines nécessaires.
+
+## ▶️ Lancer l'application
 
 ```bash
-ng generate --help
+npm start
 ```
 
-## Building
+Puis ouvrir :
 
-To build the project run:
+```text
+http://localhost:4200
+```
+
+## 🧪 Tests
+
+Pour lancer les tests unitaires :
 
 ```bash
-ng build
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 📦 Build
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Pour générer une version de production :
 
 ```bash
-ng test
+npm run build
 ```
 
-## Running end-to-end tests
+Les fichiers générés sont placés dans le dossier `dist/`.
 
-For end-to-end (e2e) testing, run:
+## 🔐 Authentification
 
-```bash
-ng e2e
-```
+L'authentification de cette version est une authentification locale de démonstration basée sur `localStorage`.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Elle permet notamment de tester :
 
-## Additional Resources
+- l'inscription ;
+- la connexion ;
+- la déconnexion ;
+- la protection de certaines routes ;
+- la gestion d'une playlist associée à l'utilisateur.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+> Cette solution est adaptée à une démonstration front-end mais ne constitue pas une authentification sécurisée pour une application en production.
+
+## 🎯 Objectifs du projet
+
+Ce projet a notamment permis de travailler :
+
+- l'architecture d'une application Angular ;
+- la création de composants standalone ;
+- les services et l'injection de dépendances ;
+- Angular Router ;
+- les guards ;
+- les signals ;
+- les appels à une API REST externe ;
+- la persistance locale des données ;
+- les tests unitaires ;
+- la création d'une interface responsive.
+
+## 👩‍💻 Auteure
+
+**Meriem Boufnina**
+
+Projet réalisé dans le cadre de mon parcours en développement d'applications.
